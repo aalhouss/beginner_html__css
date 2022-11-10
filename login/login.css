@@ -26,13 +26,18 @@ body {
     border-radius: 2px;
   }
 
-  h3{
+  h2{
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin-bottom: 50px;
-    
+    justify-content: center;
+    margin-bottom: 40px;
   }
+
+   .warning__container h2{
+    color: red;
+   }
+
+   
   .form-body{
     font-style: italic;
   }
@@ -47,14 +52,6 @@ body {
 
   }
 
-  #firstname{
-    margin-right: 10px;
-    width: 50%;
-  }
-
-  #name{
-    width: 50%;
-  }
 
   button{
     background: #18A0FB;
