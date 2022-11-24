@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="register.css" />
+    <link rel="stylesheet" href="../shared.css" />
+
     <title>Document</title>
   </head>
   <body>
@@ -25,14 +27,54 @@
             <input type="text" placeholder="Email address" style="width: 100%;" required>
         </div>
         <div>
-            <input type="password" placeholder="Password"style="width: 100%;" required>
+            <input  name="password" id="password" type="password" placeholder="Password"style="width: 100%;" onkeyup="return passwordChanged();" required>
+            <span id="strength"></span>
         </div>
         <div>
             <input type="password" placeholder="Verify password" style="width: 100%;" required>
         </div>
+        <div class="button-register">
             <button>Register</button>
+            </div>
         </div>
-        
+        <script language="javascript">
+          function passwordChanged() {
+              let strength = document.getElementById('strength');
+              let strongRegex = new RegExp("^(?=.{14,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
+              let mediumRegex = new RegExp("^(?=.{10,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
+              let enoughRegex = new RegExp("(?=.{8,}).*", "g");
+              let pwd = document.getElementById("password");
+
+              if(pwd.value.match(enoughRegex)){
+
+              }
+              if (pwd.value.length == 0) {
+                  strength.innerHTML = 'Type Password';
+
+              } else if (false == enoughRegex.test(pwd.value)) {
+                  strength.innerHTML = 'More Characters';
+                 
+              } else if (strongRegex.test(pwd.value)) {
+                strength.innerHTML = '<span style="color:green">Strong!</span>';
+                setTimeout(() => {
+                  strength.style.display='none';  
+                },2000);
+                
+              } else if (mediumRegex.test(pwd.value)) {
+                  strength.innerHTML = '<span style="color:orange">Medium!</span>';
+                  setTimeout(() => {
+                  strength.style.display='none';  
+                },2000);
+                  
+              } else {
+                  strength.innerHTML = '<span style="color:red">Weak!</span>';
+                  setTimeout(() => {
+                  strength.style.display='none';  
+                },2000);
+                 
+              }
+          }
+      </script>
     </form>
   </body>
 </html>

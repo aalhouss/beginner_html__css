@@ -1,21 +1,4 @@
-body {
-    margin: auto;
-    width: 640px; 
-    padding: 50px;
-    font-family: 'Avenir', sans-serif; 
-    color: #33475b;    
-  }
-  
-  /* Centered Image Code */
-  
-  .navbar__image {
-    display: block;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 80px;
-    
-  }
+
 
   form {
     background: #fff;
@@ -56,6 +39,12 @@ body {
     width: 50%;
   }
 
+  .button-register {
+    align-items: center;
+    display:flex;
+    justify-content: center;
+  }
+
   button{
     background: #18A0FB;
     width:130px;
@@ -64,4 +53,14 @@ body {
     color: white; 
     border-radius: 8px;
     border-color: #18A0FB;
+   
+  } ^
+
+  button:hover{
+    shadow:;
+  }
+
+  .btn_disabled { 
+    background-color: #cccccc;
+     color: #666666;
   }
