@@ -34,10 +34,12 @@
             <input type="password" placeholder="Verify password" style="width: 100%;" required>
         </div>
         <div class="button-register">
-            <button>Register</button>
+            <button id="button">Register</button>
             </div>
         </div>
         <script language="javascript">
+          const btn=document.getElementById('button')
+          btn.disabled=true;
           function passwordChanged() {
               let strength = document.getElementById('strength');
               let strongRegex = new RegExp("^(?=.{14,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
@@ -45,11 +47,14 @@
               let enoughRegex = new RegExp("(?=.{8,}).*", "g");
               let pwd = document.getElementById("password");
 
-              if(pwd.value.match(enoughRegex)){
-
+              if(!pwd.value.match(mediumRegex)){
+          
+                btn.classList.add('btn_disabled')
               }
               if (pwd.value.length == 0) {
                   strength.innerHTML = 'Type Password';
+                  btn.disabled=true;
+                  btn.classList.add('btn_disabled')
 
               } else if (false == enoughRegex.test(pwd.value)) {
                   strength.innerHTML = 'More Characters';
